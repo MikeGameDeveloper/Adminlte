@@ -63,8 +63,8 @@ class ThingController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(int $id):RedirectResponse
-    {
+    public function destroy($id):RedirectResponse
+    {  
         $thing = Thing::findOrFail($id);
         $thing->delete();
         return redirect()->back()->with('success', 'Stergere cu success!');

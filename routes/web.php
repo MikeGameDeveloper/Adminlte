@@ -8,10 +8,11 @@ Route::get('/', function () {
     return view('index');
 });
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->group(function () {
     Route::resource('things', ThingController::class)->middleware('auth');
+    Route::get('/admin/delete',[ThingController::class,'destroy'])->name('curwa');
 });
