@@ -24,6 +24,7 @@
                     <td>
                         <a href="{{ route('things.edit', ['thing'=>$thing->id]) }}" class="btn btn-dark">Edit</a>
                         <a href="{{ route('things.show', ['thing'=>$thing->id]) }}" class="btn btn-dark">Show</a>
+                        <a href="{{ route('things.destroy', ['thing'=>$thing->id]) }}" class="btn btn-dark">Delete</a>
                     </td>
                 </tr>
             @empty
@@ -35,7 +36,7 @@
             @endforelse
         </tbody>
     </table>
-    {{ $thing->links() }}
+   
 @stop
 
 @section('css')
