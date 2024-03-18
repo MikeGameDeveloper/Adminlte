@@ -2,16 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\FrontEnd\ThingsController;
+use App\Http\Controllers\ThingController;
 
 Route::get('/', function () {
     return view('index');
 });
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->group(function () {
-    Route::resource('things', ThingsController::class)->middleware('auth');
+    Route::resource('things', ThingController::class)->middleware('auth');
+    Route::get('/admin/delete',[ThingController::class,'destroy'])->name('curwa');
 });

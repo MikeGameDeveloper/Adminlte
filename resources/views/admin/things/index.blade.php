@@ -24,6 +24,12 @@
                     <td>
                         <a href="{{ route('things.edit', ['thing'=>$thing->id]) }}" class="btn btn-dark">Edit</a>
                         <a href="{{ route('things.show', ['thing'=>$thing->id]) }}" class="btn btn-dark">Show</a>
+                        
+                        <form action="{{route('things.destroy', $thing->id)}}" method="post" style="display: inline">
+                         @csrf
+                         @method('DELETE')
+                         <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
                     </td>
                 </tr>
             @empty
@@ -35,7 +41,7 @@
             @endforelse
         </tbody>
     </table>
-    {{ $thing->links() }}
+   
 @stop
 
 @section('css')
